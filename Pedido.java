@@ -16,8 +16,9 @@ public class Pedido {
         if(this.itens == null){
             this.itens = new ArrayList<>();
         }
-        this.itens.add(new Item(prod,quant));
-        total += prod.getPreço()*quant;
+        Item item = new Item(prod,quant);
+        this.itens.add(item);
+        total += item.calcularSubtotal();
     }
 
     public TipoPagamento getPagamento() {

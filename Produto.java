@@ -3,13 +3,13 @@ import java.util.Objects;
 public class Produto {
 
     private String nome;
-    private double preço;
-    private int quantidade;
+    private double preco;
+    private int estoque;
 
-    public Produto(String nome, double preço, int quantidade) {
+    public Produto(String nome, double preco, int estoque) {
         this.nome = nome;
-        this.preço = preço;
-        this.quantidade = quantidade;
+        this.preco = preco;
+        this.estoque = estoque;
     }
 
     public String getNome() {
@@ -20,20 +20,20 @@ public class Produto {
         this.nome = nome;
     }
 
-    public double getPreço() {
-        return preço;
+    public double getPreco() {
+        return preco;
     }
 
-    public void setPreço(double preço) {
-        this.preço = preço;
+    public void setPreco(double preco) {
+        this.preco = preco;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public int getEstoque() {
+        return estoque;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setEstoque(int estoque) {
+        this.estoque = estoque;
     }
 
     /**
@@ -41,9 +41,9 @@ public class Produto {
      * @param quant quantidade a ser subtraida
      */
     public void subQuantidade(int quant){
-        setQuantidade(getQuantidade()-quant);
-        if(getQuantidade() <0){
-            setQuantidade(0);
+        setEstoque(getEstoque()-quant);
+        if(getEstoque() <0){
+            setEstoque(0);
         }
     }
 
@@ -53,20 +53,20 @@ public class Produto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Produto produto = (Produto) o;
-        return Double.compare(produto.preço, preço) == 0 && quantidade == produto.quantidade && Objects.equals(nome, produto.nome);
+        return Double.compare(produto.preco, preco) == 0 && estoque == produto.estoque && Objects.equals(nome, produto.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, preço, quantidade);
+        return Objects.hash(nome, preco, estoque);
     }
 
     @Override
     public String toString() {
         return "Produto{" +
                 "nome='" + nome + '\'' +
-                ", preço=" + preço +
-                ", quantidade=" + quantidade +
+                ", preço=" + preco +
+                ", estoque=" + estoque +
                 '}';
     }
 }
